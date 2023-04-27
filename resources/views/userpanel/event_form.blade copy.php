@@ -125,13 +125,11 @@
                                     style="width: 5%">
                             </div>
                         </div>
-                        <div class="sm:col-span-2 mb-3">
-                            <label for="bmdc" class="inline-block text-gray-800 text-sm sm:text-base mb-2">BMDC no.
-                                <strong class="text-red-600">*</strong></label>
-                            <input type="text" id="bmdc" name="bmdc"
-                                class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
-                                required  value="{{ $bmdc ?? ''}}" />
-                        </div>
+                        
+                       
+
+
+                        
                         @if (isset($event->fee))
                             <style>
                                 .special_chack {
@@ -180,15 +178,7 @@
                                 class="inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Submit</button>
                         </div>
                     </div>
-                    {{-- <div class="grid sm:grid-cols-2 gap-4 mx-auto hidden mt-5" id="new_user">
-                        <div class="sm:col-span-2">
-                            <label for="name" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Full Name
-                                <strong class="text-red-600">*</strong> </label>
-                            <input type="text" name="otp" id="otp" placeholder="Enter Name"
-                                class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
-                                required />
-                        </div>
-                    </div> --}}
+                    
 
 
                 </form>

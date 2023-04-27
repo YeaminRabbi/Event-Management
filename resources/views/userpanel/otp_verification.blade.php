@@ -29,7 +29,7 @@
                 </div>
                 <p id="numberExistMessage" class=" mx-auto  mb-3 text-center ">
                     An OTP cade has been send to <span class="text-xl font-bold"
-                        style="color: #237bff;">{{ $phone }}</span>
+                        style="color: #237bff;">{{ $email }}</span>
                 </p>
                 {{-- <form class="max-w-screen-md  gap-4 mx-auto" id="EventForm" style="visibility:;"
                     action="{{ route('otp-verification') }}" method="POST">
@@ -60,7 +60,7 @@
                     <div class="sm:col-span-2 mt-10 ">
                         <div class=" flex justify-center items-center">
 
-                            <p class="mr-3">Didn't get OTP? <span id="ResendOtpSection">Resend OTP after <span
+                            <p class="mr-3">Did not get OTP? <span id="ResendOtpSection">Resend OTP after <span
                                         id="OTPtimer" class="text-purple-600"
                                         style="font-weight:800;font-size:25px;">120</span>s</span></p>
 

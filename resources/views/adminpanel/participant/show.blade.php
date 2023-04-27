@@ -60,7 +60,6 @@
                                     <p class="p-0 m-0">{{ $participant->user->phone }}</p>
                                     <p class="p-0 m-0">{{ $participant->user->email }}</p>
                                     <p class="">Gender: <strong>{{ $participant->user->gender ?? '' }}</strong> </p>
-                                    <p class="p-0 m-0">BMDC: <strong>{{ $participant->user->bmdc }}</strong></p>
                                     {{-- <p class="p-0 m-0"><small class="text-muted">Last updated 3 mins ago</small></p> --}}
                                 </div>
                             </div>

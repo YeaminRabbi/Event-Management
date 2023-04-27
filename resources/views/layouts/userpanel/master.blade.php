@@ -76,7 +76,7 @@
 
         <div class="bg-white">
             <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-                <p class="text-gray-500 text-sm text-center sm:text-left mx-auto">© 2022 Event Management —
+                <p class="text-gray-500 text-sm text-center sm:text-left mx-auto">© 2023 Event Management —
                     <a href="#" rel="noopener noreferrer" class="text-gray-600 ml-1"
                         target="_blank">Developed by <strong>TEAM</strong></a>
                 </p>

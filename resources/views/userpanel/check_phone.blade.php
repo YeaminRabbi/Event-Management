@@ -42,6 +42,15 @@
                         </div>
                     </div>
 
+                     <div class="sm:col-span-2">
+                        <label for="email" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Email
+                            <strong class="text-red-600">*</strong></label>
+                        <div>
+                            <input type="email" name="email" id="email" class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2 input-text-center" placeholder="xyz@gmail.com"
+                                required />
+                        </div>
+                    </div>
+
                     <p id="numberRegisterToEvent" class=" mx-auto  mt-5 text-center font-bold hidden"
                         style="font-size: 1.5em; color: #237bff;">
                         Your registration has already been completed for this event
@@ -49,7 +58,7 @@
 
                     <p id="numberExistMessage" class=" mx-auto  mt-5 text-center font-bold  hidden"
                         style="font-size: 1.5em; color: #237bff;">
-                        Please verify your phone number
+                        Please verify yourself
                     </p>
 
 

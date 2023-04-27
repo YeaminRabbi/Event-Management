@@ -44,10 +44,10 @@ class HomeController extends Controller
 
 
         if (!isset($event) || ($currentTime > $eventRegLastTime)) {
-            // return $message = 'This Event Registration is either Not Open yet or Closed Already';
+            $message = 'This Event Registration is either Not Open yet or Closed Already';
             return view('userpanel.event_status', compact('message'));
         } elseif (str_replace(" ", "-", $event->name) !== $event_name) {
-            // return $message = 'This link is not correct';
+            $message = 'This link is not correct';
             return view('userpanel.event_status', compact('message'));
         }
 
@@ -110,37 +110,7 @@ class HomeController extends Controller
 
 
     public function check_participant(Request $request){
-        // $phone = $request->phone;
-        // $event_id = $request->eventID;
-        // return [
-        //     $phone,
-        //     $event_id 
-        // ];
-        // $participatedToEvent = 0;
-
-        // $user = User::where('phone', $phone)->first();
-        // if(!isset($user))
-        // {
-        //     return response([
-        //         'user' => (bool)$user,
-        //         'participated' => $participatedToEvent
-        //     ]);
-        // }
-        // else{
-        //     $participant = Participant::where('user_id', $user->id)->where('event_id', $event_id)->first();
-        //     if(isset($participant)){
-        //         $participatedToEvent = 1;
-        //         return response([
-        //             'user' => (bool)$user,
-        //             'participated' => $participatedToEvent
-        //         ]);
-        //     }
-        // }
-
-        // return response([
-        //     'user' => (bool)$user,
-        //     'participated' => $participatedToEvent
-        // ]);
+        
         $reg_match =  preg_match("/^(\+88|0088|)01([123456789])([0-9]{8})$/", $request->phone);
         if ($reg_match && strlen($request->phone) >= 11) {
             $sub_phone = substr($request->phone, -11);
@@ -148,24 +118,12 @@ class HomeController extends Controller
                 $q->where('event_id', $request->eventID);
             },
             'participants.payments'])->where('phone', $sub_phone)->first();
-            // return $user->participants[0]->status?? 0;
-            // $fees = [];
-            // $participated = (bool)($user ? !$user->participants->isEmpty() : 0);
-            // if($participated && !$user->participants[0]->status ){
-            //     $paid = $user->participants[0]->payments->sum('amount');
-            //     return 
-            //     $fees = $user->participants[0]->payable_amount;
-                
-            // }
-
+           
             return Response([
                 'user' => (bool) $user,
                 'registered' => $user->participants[0]->status ?? 0,
-                // 'participated' => $participated,
-                // 'fees' => $fees
+               
             ]);
-            // return
-            // User::where('phone', $sub_phone)->exists();
         }
 
 
@@ -173,7 +131,6 @@ class HomeController extends Controller
 
     public function formSubmission(Request $request)
     {
-
         $user = User::updateOrCreate(
             [
                 'phone'             => $request->phone
@@ -184,7 +141,6 @@ class HomeController extends Controller
                 'emergency_phone'   => $request->emergency_contact,
                 'email'             => $request->email,
                 'gender'            => $request->gender,
-                'bmdc'              => $request->bmdc,
             ]
         );
 

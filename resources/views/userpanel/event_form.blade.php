@@ -47,13 +47,6 @@
                                 <input type="text"
                                 class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
                                 required disabled  value="{{ $phone }}"/>
-
-                                
-                                {{-- <img id="validatePhone" class="hidden" src="/logo/icons8-checkmark.gif" alt="logo"
-                                style="width: 5%">
-                                <img id="invalidPhone" class="hidden" src="/logo/icons8-error.gif" alt="logo"
-                                style="width: 5%"> --}}
-                                {{-- <p class="text-red-600 font-bold" id="InvalidPhoneCheck"></p> --}}
                             </div>
                         </div>
                         <div class="grid sm:grid-cols-2 gap-4 mx-auto mt-5" id="formVisibility">
@@ -132,13 +125,7 @@
                                     style="width: 5%">
                                 </div>
                             </div>
-                            <div class="sm:col-span-2 mb-3">
-                                <label for="bmdc" class="inline-block text-gray-800 text-sm sm:text-base mb-2">BMDC no.
-                                    <strong class="text-red-600">*</strong></label>
-                                    <input type="text" id="bmdc" name="bmdc"
-                                    class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
-                                    required  value="{{ $bmdc ?? ''}}" />
-                                </div>
+                            
                         @if (isset($event->fee))
                         <style>
                             .special_chack {
@@ -151,7 +138,7 @@
                                     
                                     @if ($participant)
                                     <input type="hidden" name="paid_amount" value="{{ $paid_amount }}" id="paid_amount">
-                                    <p >You've already paid <strong class="text-purple-600 text-2xl  ">{{ $paid_amount }}</strong></p>
+                                    <p >You have already paid <strong class="text-purple-600 text-2xl  ">{{ $paid_amount }}</strong></p>
                                     @endif
                                 </div>
                                 @foreach ($event->fee as $key => $item)
@@ -198,15 +185,7 @@
                                 class="inline-block bg-indigo-500 hover:bg-indigo-600 active:bg-indigo-700 focus-visible:ring ring-indigo-300 text-white text-sm md:text-base font-semibold text-center rounded-lg outline-none transition duration-100 px-8 py-3">Submit</button>
                         </div>
                     </div>
-                    {{-- <div class="grid sm:grid-cols-2 gap-4 mx-auto hidden mt-5" id="new_user">
-                        <div class="sm:col-span-2">
-                            <label for="name" class="inline-block text-gray-800 text-sm sm:text-base mb-2">Full Name
-                                <strong class="text-red-600">*</strong> </label>
-                            <input type="text" name="otp" id="otp" placeholder="Enter Name"
-                                class="w-full bg-gray-50 text-gray-800 border focus:ring ring-indigo-300 rounded outline-none transition duration-100 px-3 py-2"
-                                required />
-                        </div>
-                    </div> --}}
+                 
 
 
                 </form>
@@ -287,76 +266,9 @@
         function phoneCheck() {
             var phone = document.getElementById('phone').value; ///get id with value
             console.log(phone)
-            // var phonePattern =
-            //     /^(\+88|0088|)01([123456789])([0-9]{8})$/; ////Regular expression
-            // let invalidPhoneCheck = document.getElementById('InvalidPhoneCheck')
-            // let eventID = document.getElementById('eventID').value
-            // let formVisibility = document.getElementById('formVisibility')
-            // let name = document.getElementById('name')
-            // let gender = document.querySelectorAll('[name="gender"]');
-            // let emergency_contact_name = document.querySelector('[name="emergency_contact_name"]');
-            // let emergency_contact = document.querySelector('[name="emergency_contact"]');
-            // let email = document.getElementById('email')
-            // let bmds = document.getElementById('bmdx')
+            
 
-
-            // if (phone.length == 0) {
-            //     element.style.backgroundColor = '#fff';
-            //     // invalidPhoneCheck.innerHTML = ''
-            //     document.getElementById('InvalidPhoneCheck').text("Not in length");
-            //     console.log('not in length');
-            // } else if (!phonePattern.test(phone)) {
-            //     element.style.backgroundColor = '#fecaca';
-            //     formVisibility.classList.add('hidden')
-            //     // invalidPhoneCheck.innerHTML = ''
-            //     console.log('Not in phone pattern')
-            // } else {
-
-            //     console.log('Axios start')
-            //     axios.post('/fetch-user', {
-            //             phone,
-            //             eventID
-
-            //         })
-            //         .then(function(response) {
-            //             console.log(response.data);
-            //             let color = '#fff';
-            //             // let color = response.data ? '#fecaca' : '#fff';
-            //             if (response.data && response.data.user) {
-            //                 console.log('Valid Number');
-            //                 let user = response.data.user
-            //                 name.value = user.name;
-            //                 emergency_contact_name.value = user.emergency_name;
-            //                 emergency_contact.value = user.emergency_phone;
-            //                 email.value = user.email;
-            //                 bmdc.value = user.bmdc;
-            //                 gender.forEach(element => {
-            //                     element.checked = element.value == user.gender;
-            //                 });
-
-            //             } else {
-            //                 console.log('Invalid Number');
-            //                 name.value = ''
-            //                 emergency_contact_name.value = ''
-            //                 emergency_contact.value = ''
-            //                 email.value = '';
-            //                 bmdc.value = '';
-            //                 gender.forEach(element => {
-            //                     element.checked = false
-            //                 });
-            //             }
-            //             // response.data ? invalidPhone.classList.remove('inbalidEmail') : '#fff';
-            //             // element.style.backgroundColor = color;
-            //             // console.log(color);
-            //             // formVisibility.classList.remove('hidden')
-
-            //         })
-            //         .catch(function(error) {
-            //             console.log(error);
-            //         });
-            // }
-
-            // console.log(element.value.indexOf('@') > -1 && element.value.indexOf('@') + 2 < element.value.indexOf('.'))
+          
         }
     </script>
 @endsection

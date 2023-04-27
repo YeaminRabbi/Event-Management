@@ -77,12 +77,17 @@ class OtpController extends Controller
         );
 
 
-        Sms::send($sub_phone, 'Your CDSC.INFO verification code: ' . $code);
 
+        $details = [
+                'otp' => $code,
+            ];
+        
+        \Mail::to($request->email)->send(new \App\Mail\MyTestMail($details));
+        
 
-        $token = urldecode(base64_encode(json_encode([$this->token_encryption_key . '-' . $request->event_id, $request->phone])));
+        $token = urldecode(base64_encode(json_encode([$this->token_encryption_key . '-' . $request->event_id, $request->phone , $request->email])));
 
-        return redirect()->route('otp-verification-form', [$token]);
+        return redirect()->route('otp-verification-form', [$token, $request->email]);
     }
 
     public function otp_verification_form(Request $request, $token)
@@ -97,6 +102,7 @@ class OtpController extends Controller
         $event_id = explode('-', $data[0] ?? null)[1] ?? null;
 
         $phone = $data[1] ?? null;
+        $email = $data[2] ?? null;
 
         if ($event_id == null || $phone == null) {
             return redirect()->route('home');
@@ -106,6 +112,7 @@ class OtpController extends Controller
         return view('userpanel.otp_verification', [
             'event' => Event::find($event_id),
             'phone' => $phone,
+            'email' => $email,
             'token' => $token,
         ]);
     }
